@@ -212,10 +212,6 @@
     }
     .about-flow span.step { color: var(--text); background: var(--bg2); border: 1px solid var(--border); padding: 6px 14px; border-radius: 8px; }
     .about-flow i { color: var(--blue-lt); font-size: 0.75rem; }
-    .currently-building { margin-top: 24px; padding: 20px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); max-width: 720px; }
-    .cb-title { font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 12px; font-family: var(--font-mono); }
-    .cb-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .cb-tag { background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2); color: var(--text); font-size: 0.8rem; padding: 5px 12px; border-radius: 6px; }
 
     /* DEVOPS STACK (single source of truth for current status + roadmap) */
     .status-group { margin-bottom: 26px; }
@@ -282,11 +278,9 @@
     .pc-status-badge { display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; width: fit-content; }
     .pc-status-badge.active { background: rgba(234,179,8,0.1); border: 1px solid rgba(234,179,8,0.3); color: var(--amber); }
     .pc-status-badge .dot3 { width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
+    .pc-status-badge.completed { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: var(--green); }
+    .pc-status-badge.completed .dot3 { background: var(--green); }
 
-    .coming-soon-card { background: var(--card); border: 1px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; min-height: 200px; color: var(--muted); font-size: 0.9rem; padding: 24px; }
-    .coming-soon-card i { font-size: 1.8rem; color: var(--blue); opacity: 0.5; }
-    .coming-next-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 4px; }
-    .coming-next-tags .tag { font-family: var(--font-mono); font-size: 0.72rem; }
 
     /* CERTIFICATIONS */
     #certifications { padding-top: 120px; }
@@ -482,7 +476,7 @@
           <div class="hero-actions">
             <a href="#stack" class="btn btn-primary"><i class="fas fa-terminal"></i> View DevOps Stack</a>
             <a href="https://www.linkedin.com/in/vidit-bhatnagar-devops" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="hhttps://github.com/Vidit-Bhatnagar" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/Vidit-Bhatnagar" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
             <a href="images/Vidit_Bhatnagar_DevOps_Resume.pdf" download class="btn btn-outline" style="border-color:rgba(255,255,255,0.25); color:#fff;"><i class="fas fa-download"></i>Download My Resume</a>
           </div>
 
@@ -546,15 +540,7 @@
           <i class="fas fa-arrow-right"></i>
           <span class="step">Hands-on DevOps Projects</span>
           <i class="fas fa-arrow-right"></i>
-          <span class="step">Devops Career</span>
-        </div>
-
-        <div class="currently-building">
-          <div class="cb-title">📚 Currently Building</div>
-          <div class="cb-tags">
-            <span class="cb-tag">🐧 Linux &amp; System Administration</span>
-            <span class="cb-tag">🔀 Git &amp; GitHub Workflow</span>
-          </div>
+          <span class="step">DevOps Career</span>
         </div>
       </div>
     </section>
@@ -615,40 +601,35 @@
       <div class="reveal">
         <div class="section-label">My Work</div>
         <h2 class="section-title">DevOps Projects &amp; Labs</h2>
-        <p class="section-sub">Hands-on work in progress, plus the analytics projects that built my foundation.</p>
+                <p class="section-sub">Completed DevOps projects, plus the analytics work that built my foundation.</p>
       </div>
 
-      <div class="projects-subheading reveal"><i class="fas fa-terminal"></i> Currently Building</div>
+      <div class="projects-subheading reveal"><i class="fas fa-check-circle"></i> Completed</div>
       <div class="projects-grid" style="margin-bottom: 8px;">
         <div class="project-card reveal">
+          <img class="pc-img" src="images/THUMBNAIL.png" alt="Linux Server Health Monitor" />
           <div class="pc-body">
-            <div class="pc-status-badge active"><span class="dot3"></span>ACTIVE LEARNING · IN PROGRESS</div>
-            <div class="pc-title">Linux &amp; System Administration Lab</div>
-            <p class="pc-desc">Hands-on practice on Ubuntu via WSL2, covering filesystem navigation, file &amp; directory management, permissions, users &amp; groups, ownership, sudo/root concepts, process concepts, networking fundamentals, and SSH.</p>
+            <div class="pc-status-badge completed"><span class="dot3"></span>COMPLETED · ON GITHUB</div>
+            <div class="pc-title">Linux Server Health Monitor</div>
+            <p class="pc-desc">A Bash-based Linux server monitoring tool that checks CPU, RAM, and disk usage, validates SSH and Cron service status, calculates overall system health, and generates timestamped daily reports with alert logging for WARNING/CRITICAL conditions.</p>
+            <div class="pc-impact"><strong>Automation:</strong> Runs automatically via Cron every 5 minutes, with execution verified through journalctl and exit codes (0 = OK, 1 = WARNING, 2 = CRITICAL) mapped to system health state.</div>
             <div class="tags">
-              <span class="tag">Linux</span><span class="tag">Ubuntu</span><span class="tag">Permissions</span>
-              <span class="tag">Users &amp; Groups</span><span class="tag">SSH</span>
+              <span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">systemd</span>
+              <span class="tag">Cron</span><span class="tag">journalctl</span><span class="tag">Git</span>
+            </div>
+            <div class="pc-footer">
+              <button class="btn btn-preview" style="padding: 8px 14px; font-size:0.8rem;" onclick="openPreview('healthmonitor')">
+                <i class="fas fa-images"></i> Preview
+              </button>
+              <a href="https://github.com/Vidit-Bhatnagar/linux-server-health-monitor" target="_blank" class="btn btn-outline" style="padding: 8px 18px; font-size:0.82rem;">
+                <i class="fab fa-github"></i> View on GitHub
+              </a>
             </div>
           </div>
         </div>
-
-        <div class="coming-soon-card reveal">
-          <i class="fas fa-code-branch"></i>
-          <span>Git &amp; GitHub Workflow</span>
-          <span style="font-size:0.78rem; color: var(--muted);">Active learning — branching, merging, version control</span>
-        </div>
       </div>
 
-      <div class="projects-subheading reveal"><i class="fas fa-map-signs"></i> Coming Next</div>
-      <div class="coming-soon-card reveal" style="margin-bottom: 44px;">
-        <i class="fas fa-rocket"></i>
-        <span>Networking &amp; AWS-based projects</span>
-        <div class="coming-next-tags">
-          <span class="tag">Networking</span><span class="tag">AWS</span><span class="tag">Docker</span>
-        </div>
-      </div>
-
-      <div class="projects-subheading reveal"><i class="fas fa-chart-line"></i> Previous Analytics Projects</div>
+      <div class="projects-subheading reveal" style="margin-top: 44px;"><i class="fas fa-chart-line"></i> Previous Analytics Projects</div>
 
       <!-- FEATURED: Customer Churn -->
       <div class="featured-project reveal">
@@ -701,7 +682,7 @@
               <button class="btn btn-preview" style="padding: 8px 14px; font-size:0.8rem;" onclick="openPreview('ecommerce')">
                 <i class="fas fa-images"></i> Preview
               </button>
-              <a href="https://github.com/VidbTheAnalyst/Ecommerce-Analytics-Project" target="_blank" class="btn btn-outline" style="padding: 8px 18px; font-size:0.82rem;">
+              <a href="https://github.com/Vidit-Bhatnagar/Ecommerce-Analytics-Project" target="_blank" class="btn btn-outline" style="padding: 8px 18px; font-size:0.82rem;">
                 <i class="fab fa-github"></i> GitHub
               </a>
             </div>
@@ -900,7 +881,7 @@
                 <div class="snapshot-row-icon"><i class="fas fa-terminal"></i></div>
                 <div class="snapshot-row-content">
                   <span class="snapshot-row-label">Career Focus</span>
-                  <span class="snapshot-row-value"> Cloud and Devops </span>
+                                    <span class="snapshot-row-value">Cloud &amp; DevOps</span>
                 </div>
               </div>
               <div class="snapshot-row">
@@ -1031,6 +1012,14 @@
 
     /* ── PROJECT PREVIEW CAROUSEL ── */
     const projectData = {
+      healthmonitor: {
+        title: 'Linux Server Health Monitor',
+        images: [
+          { src: 'images/Generated Log.png',        caption: 'Generated Health Log' },
+          { src: 'images/Health Monitor Report.png', caption: 'Daily Health Report' },
+          { src: 'images/Cron Execution Proof.png',  caption: 'Cron Execution Verified via journalctl' },
+        ]
+      },
       churn: {
         title: 'Customer Churn Analysis & Prediction',
         images: [
